@@ -7,7 +7,15 @@ export class AppService {
 
   async sendSMS(to: string, body: string, from?: string): Promise<any> {
     try {
-      return await this.smsUtil.sendsms(to, body, from);
+      return await this.smsUtil.sendSMS(to, body, from);
+    } catch (error) {
+      return error;
+    }
+  }
+
+  async viewHistory(from?: string, to?: string): Promise<any> {
+    try {
+      return await this.smsUtil.viewHisory(from, to);
     } catch (error) {
       return error;
     }

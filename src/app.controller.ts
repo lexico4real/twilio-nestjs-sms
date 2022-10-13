@@ -9,4 +9,11 @@ export class AppController {
   async sendSMS(@Body() body: { to: string; body: string; from?: string }) {
     return await this.appService.sendSMS(body.to, body.body, body.from);
   }
+
+  @Post('view-history')
+  async viewHistory(
+    @Body() body: { from?: string; to?: string },
+  ): Promise<any> {
+    return await this.appService.viewHistory(body.from, body.to);
+  }
 }
